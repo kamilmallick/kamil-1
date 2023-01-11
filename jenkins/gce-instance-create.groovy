@@ -33,6 +33,15 @@ pipeline {
         
     }
     }
+	    
+	    
+	stage('List Instance') {
+	 steps {
+    
+    sh 'gcloud compute instances list'
+        
+    }
+    }
      
    }
 }
