@@ -29,7 +29,7 @@ pipeline {
 	stage('Create Instance') {
 	 steps {
     
-    sh 'gcloud compute instances create $VM --zone=$ZONES'
+    sh 'gcloud compute instances $ACTION $VM --zone=$ZONES'
         
     }
     }
