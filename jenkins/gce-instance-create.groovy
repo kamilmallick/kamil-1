@@ -18,7 +18,7 @@ pipeline {
 	
 	stage('Auth-Project') {
 	 steps {
-		 dir('module-3')
+		 dir('jenkins')
 		 {
     
         sh 'gcloud auth activate-service-account jenkins@mi-dev-lab.iam.gserviceaccount.com --key-file=jenkins.json'
