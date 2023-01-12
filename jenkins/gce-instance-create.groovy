@@ -21,7 +21,7 @@ pipeline {
 		 dir('jenkins')
 		 {
     
-        sh 'gcloud auth activate-service-account jenkins@mi-dev-lab.iam.gserviceaccount.com --key-file=jenkins.json'
+        sh 'gcloud auth activate-service-account faheem@mi-uat-lab.iam.gserviceaccount.com --key-file=jenkins.json'
     }
     }
 	}
@@ -29,7 +29,7 @@ pipeline {
 	stage('Create Instance') {
 	 steps {
     
-    sh 'gcloud compute instances $ACTION $VM --zone=$ZONES'
+    sh 'gcloud compute instances create test --zone=us-central1-a'
         
     }
     }
