@@ -31,7 +31,7 @@ pipeline {
 	stage('Delete Instance Template') {
 	 steps {
     
-    sh 'gcloud compute forwarding-rules delete nginx-lb --quiet'
+    sh 'gcloud compute instance-templates delete nginx-template --quiet'
         
     }
     } 
