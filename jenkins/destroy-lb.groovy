@@ -55,7 +55,7 @@ pipeline {
 	stage('Delete Instance Template') {
 	 steps {
     
-    sh 'gcloud compute forwarding-rules delete nginx-lb --region us-central1 --quiet'
+    sh 'gcloud compute forwarding-rules delete nginx-lb --quiet'
         
     }
     } 
