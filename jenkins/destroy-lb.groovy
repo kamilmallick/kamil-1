@@ -26,31 +26,7 @@ pipeline {
     }
 	}
       
-     stage('Delete loadbalancer') {
-	 steps {
-    
-    sh 'gcloud compute forwarding-rules delete nginx-lb --region us-central1 --quiet'
-        
-    }
-    }
- 	 
-      
-       stage('Delete MIG') {
-	 steps {
-    
-    sh 'gcloud compute instance-groups managed delete nginx-group --region us-central1 --quiet'
-        
-    }
-    }
-      
-      stage('Delete targetpool') {
-	 steps {
-    
-    sh 'gcloud compute target-pools delete nginx-pool --region us-central1 --quiet'
-        
-    }
-    }
-      
+     
       
 	stage('Delete Instance Template') {
 	 steps {
