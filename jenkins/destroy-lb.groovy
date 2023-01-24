@@ -29,7 +29,7 @@ pipeline {
      stage('Delete loadbalancer') {
 	 steps {
     
-    sh 'gcloud compute forwarding-rules create nginx-lb --region us-central1 --ports=80 --target-pool nginx-pool'
+    sh 'gcloud compute forwarding-rules delete nginx-lb --region us-central1 --quiet'
         
     }
     }
@@ -38,7 +38,7 @@ pipeline {
        stage('Delete MIG') {
 	 steps {
     
-    sh 'gcloud compute instance-groups managed create nginx-group --base-instance-name nginx --size 2 --template nginx-template --target-pool nginx-pool --region us-central1'
+    sh 'gcloud compute instance-groups managed delete nginx-group --region us-central1 --quiet'
         
     }
     }
@@ -46,7 +46,7 @@ pipeline {
       stage('Delete targetpool') {
 	 steps {
     
-    sh 'gcloud compute target-pools create nginx-pool --region us-central1'
+    sh 'gcloud compute target-pools delete nginx-pool --region us-central1 --quiet'
         
     }
     }
@@ -64,7 +64,8 @@ pipeline {
      stage('Delete firewall rule') {
 	 steps {
     
-    sh 'gcloud compute firewall-rules create allow-fw-http-01 --allow tcp:80'
+    sh 'gcloud compute firewall-rules delete allow-fw-http-01 --quiet'
+	sh 'gcloud compute firewall-rules delete allow-fw-http --quiet'
         
     }
     }
