@@ -41,7 +41,6 @@ pipeline {
 	 steps {
     
     sh 'gcloud compute firewall-rules delete allow-fw-http-01 --quiet'
-	sh 'gcloud compute firewall-rules delete allow-fw-http --quiet'
         
     }
     }
