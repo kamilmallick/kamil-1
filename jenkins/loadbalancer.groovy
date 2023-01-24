@@ -9,8 +9,8 @@ pipeline {
       	stage('Set creds') {
             steps {
               
-                sh 'echo $SVC_ACCOUNT_KEY | base64 -d > ./jenkins/jenkins.json'
-		            sh 'pwd' 
+               sh 'echo $SVC_ACCOUNT_KEY | base64 -d > ./jenkins/jenkins.json'
+		sh 'pwd' 
                
             }
         }
