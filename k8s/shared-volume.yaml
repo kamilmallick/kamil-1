@@ -1,0 +1,39 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-app
+  labels:
+    app: java
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: java
+  template:
+    metadata:
+      labels:
+        app: java
+    spec:
+      containers:
+      - name: java-container-01
+        image: gcr.io/mi-dev-env/java:v1
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: shared-volume
+          mountPath: /mnt/shared-volume
+
+      - name: java-container-02
+        image: gcr.io/mi-dev-env/nginx:latest
+        ports:
+        - containerPort: 8081
+        volumeMounts:
+        - name: shared-volume
+          mountPath: /opt/shared-volume
+        
+      volumes:
+      - name: shared-volume
+        emptyDir: {}  
+
+
