@@ -29,7 +29,7 @@ pipeline {
 	stage('Create gke cluster') {
 	 steps {
     
-    sh 'gcloud container clusters create my-cluster --zone=us-central1-a  --num-nodes=1 --project mi-dev-env'
+    sh 'gcloud container clusters create my-cluster-01 --zone=us-central1-a  --num-nodes=1 --project mi-dev-env'
         
     }
     }
@@ -37,7 +37,7 @@ pipeline {
   stage('Gather Credentials') {
 	 steps {
     
-    sh 'gcloud container clusters get-credentials my-cluster --zone us-central1-a --project mi-dev-env'
+    sh 'gcloud container clusters get-credentials my-cluster-01 --zone us-central1-a --project mi-dev-env'
         
     }
     }
