@@ -18,14 +18,13 @@ pipeline {
 	
 	stage('Auth-Project') {
 	 steps {
-		 dir('jenkins')
-		 {
+		 
     
         sh 'gcloud auth activate-service-account jenkins@mi-de-env.iam.gserviceaccount.com --key-file=jenkins.json'
         sh 'gcloud config set project mi-dev-env'
     }
     }
-	}
+	
  	 
 	stage('Create gke cluster') {
 	 steps {
